@@ -45,7 +45,7 @@ export default function HeroBanner(): React.ReactElement {
             <Carousel />
           </div>
         </div>
-        <div className="h-20 w-full overflow-hidden">
+        <div className="h-20 w-full">
           <Slider />
         </div>
       </div>
