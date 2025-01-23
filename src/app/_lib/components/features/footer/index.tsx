@@ -1,8 +1,10 @@
 import Image from "next/image";
+import { getFooterData } from "@/app/_lib/services";
+import type { footerDataType } from "@/app/_lib/types";
 import FooterCard from "@/app/_lib/components/features/footer/card";
-import { sampleData, type sampleType } from "@/app/_lib/components/features/footer/mockup";
 
-export default function Footer(): React.ReactElement {
+export default async function Footer(): Promise<React.ReactElement> {
+  const data: footerDataType[] = await getFooterData();
   return (
     <footer className="flex size-full flex-col items-center bg-gray-50 py-16">
       <div
@@ -28,8 +30,8 @@ export default function Footer(): React.ReactElement {
           <p className="text-xs/8 font-bold text-gray-600">010-0000-0000</p>
           <p className="text-xs/8 font-bold text-gray-600">aaaaa@naver.com</p>
         </div>
-        {sampleData.map((data: sampleType) => (
-          <FooterCard key={data.id} icon={data.icon} title={data.title} />
+        {data?.map((item: footerDataType) => (
+          <FooterCard key={item.id} icon={item.icon} title={item.title} />
         ))}
 
         <div id="busnises-name" className="col-span-1 flex flex-col gap-2 text-xs">

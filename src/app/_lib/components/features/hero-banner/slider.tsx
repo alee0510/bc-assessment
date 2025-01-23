@@ -1,19 +1,32 @@
 "use client";
 import { useState, useEffect } from "react";
+import { getFooterData } from "@/app/_lib/services";
+import type { footerDataType } from "@/app/_lib/types";
 import HeroCard from "@/app/_lib/components/features/hero-banner/card";
-import { heroSamples } from "@/app/_lib/components/features/hero-banner/mockup";
 
 export default function Slider(): React.ReactElement {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [data, setData] = useState<footerDataType[]>([]);
 
+  // @sideEffect
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % heroSamples.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
     }, 5000);
 
     return () => {
       clearInterval(interval);
     };
+  }, []);
+
+  // @fetcthData
+  useEffect(() => {
+    const fetchData = async (): Promise<void> => {
+      const footerData = await getFooterData();
+      setData(footerData);
+    };
+
+    void fetchData();
   }, []);
 
   return (
@@ -26,11 +39,9 @@ export default function Slider(): React.ReactElement {
         }}
         className="relative flex size-full gap-4 text-white"
       >
-        {heroSamples.concat(heroSamples).map((item, index) => {
+        {data.concat(data).map((item, index) => {
           return (
             <HeroCard
-              index={index}
-              quantity={heroSamples.length}
               // eslint-disable-next-line react/no-array-index-key
               key={item.id + "-" + index}
               image={item.icon}

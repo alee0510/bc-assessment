@@ -1,13 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
+import { getCarouselData } from "@/app/_lib/services";
+import type { carouselDataType } from "@/app/_lib/types";
 import Card from "@/app/_lib/components/features/hero-banner/carousel-card";
-import { samples } from "@/app/_lib/components/features/hero-banner/mockup";
 
 // @main component
 export default function MainCarousel(): React.ReactElement {
   const [current, setCurrent] = useState(0);
   const [fraction, setFraction] = useState(2);
+  const [data, setData] = useState<carouselDataType[]>([]);
 
   // @side-effect
   useEffect(() => {
@@ -27,6 +29,16 @@ export default function MainCarousel(): React.ReactElement {
     };
   }, []);
 
+  // @fecth data
+  useEffect(() => {
+    const fetchData = async (): Promise<void> => {
+      const carouselData = await getCarouselData();
+      setData(carouselData);
+    };
+
+    void fetchData();
+  }, []);
+
   // @event handler
   const getStyle = (index: number): React.CSSProperties => {
     const containerWidth = 384; // 24rem in pixels
@@ -37,7 +49,7 @@ export default function MainCarousel(): React.ReactElement {
         opacity: 1,
         zIndex: 10,
       };
-    } else if (index === (current - 1 + samples.length) % samples.length) {
+    } else if (index === (current - 1 + data.length) % data.length) {
       // @check prev item in circular mode before the current and move it to the left
       return {
         transform: `translateX(-${containerWidth / fraction}px) translateZ(-192px) rotateY(0deg)`,
@@ -45,7 +57,7 @@ export default function MainCarousel(): React.ReactElement {
         opacity: 1,
         zIndex: 5,
       };
-    } else if (index === (current + 1) % samples.length) {
+    } else if (index === (current + 1) % data.length) {
       //@ check next item after current item and move it to the right
       return {
         transform: `translateX(${containerWidth / fraction}px) translateZ(-192px) rotateY(0deg)`,
@@ -58,10 +70,10 @@ export default function MainCarousel(): React.ReactElement {
     }
   };
   const onNext = (): void => {
-    setCurrent((prev) => (prev + 1) % samples.length);
+    setCurrent((prev) => (prev + 1) % data.length);
   };
   const onPrev = (): void => {
-    setCurrent((prev) => (prev - 1 + samples.length) % samples.length);
+    setCurrent((prev) => (prev - 1 + data.length) % data.length);
   };
 
   return (
@@ -75,7 +87,7 @@ export default function MainCarousel(): React.ReactElement {
         }}
         className="relative flex h-80 w-60 md:h-[28rem] md:w-72"
       >
-        {samples.map((item, index) => (
+        {data.map((item, index) => (
           <Card key={item.id} item={item} active={index === current} style={getStyle(index)} />
         ))}
       </div>
