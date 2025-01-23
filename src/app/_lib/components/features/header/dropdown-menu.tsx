@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
-import clsx from "clsx";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import clsx from "clsx";
+import List from "@/app/_lib/components/features/header/dropdown-list";
 
 export default function HeaderDropdownMenu(): React.ReactElement {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,18 +25,10 @@ export default function HeaderDropdownMenu(): React.ReactElement {
           isMenuOpen ? "block" : "hidden"
         )}
       >
-        <li className="cursor-pointer px-4 py-2 font-bold text-gray-900 hover:font-black hover:text-gray-900">
-          채용
-        </li>
-        <li className="cursor-pointer px-4 py-2 hover:font-black hover:text-gray-900">
-          해외 개발자 원격 채용
-        </li>
-        <li className="cursor-pointer border-b px-4 py-2 hover:font-black hover:text-gray-900">
-          외국인 원격 채용 (비개발 직군)
-        </li>
-        <li className="cursor-pointer px-4 py-2 hover:font-black hover:text-gray-900">
-          한국어 가능 외국인 채용
-        </li>
+        <List className="font-black">채용</List>
+        <List>해외 개발자 원격 채용</List>
+        <List className="border-b">외국인 원격 채용 (비개발 직군)</List>
+        <List>한국어 가능 외국인 채용</List>
       </ul>
     </div>
   );
