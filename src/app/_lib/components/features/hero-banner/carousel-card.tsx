@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { dataType } from "@/app/_lib/components/features/hero-banner/mockup";
+import PopOver from "@/app/_lib/components/ui/pop-over";
 
 export default function CarouselCard({
   item,
@@ -33,6 +34,49 @@ export default function CarouselCard({
         ...style,
       }}
     >
+      {/* <div className="absolute -top-20 hidden gap-1 rounded-lg bg-white px-4 py-2">
+        <div className="rounded-full bg-teal-200/60 p-2">
+          <div className="relative size-6">
+            <Image
+              src={"/icons/icon-dolar.svg"}
+              alt="icon-dolar"
+              sizes="100%"
+              fill
+              className="object-contain"
+            />
+          </div>
+        </div>
+        <p className="ml-2 text-lg font-black text-teal-500">월 100만원</p>
+        <span
+          style={{
+            width: 0,
+            height: 0,
+            borderLeft: "10px solid transparent",
+            borderRight: "10px solid transparent",
+            borderTop: "10px solid white",
+            bottom: "-0.9rem",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            position: "absolute",
+          }}
+        />
+      </div> */}
+      <PopOver position="center">
+        <div className="flex items-center">
+          <div className="rounded-full bg-teal-200/60 p-2">
+            <div className="relative size-6">
+              <Image
+                src={"/icons/icon-dolar.svg"}
+                alt="icon-dolar"
+                sizes="100%"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
+          <p className="ml-2 text-lg font-black text-teal-500">월 100만원</p>
+        </div>
+      </PopOver>
       <div id="profile-image" className="relative">
         <div className="relative size-32 overflow-hidden rounded-full">
           <Image src={item.image} alt={item.name} sizes="100%" fill className="object-contain" />
