@@ -5,7 +5,7 @@ export default function Header(): React.ReactElement {
   return (
     <header
       id="header-container"
-      className="sm: absolute left-0 top-0 z-10 flex w-full justify-center px-4 text-base font-black"
+      className="absolute left-0 top-0 z-10 flex w-full justify-center px-4 text-base font-black"
     >
       <div id="header-menu" className="flex w-full max-w-screen-xl items-center justify-between">
         <Logo />
