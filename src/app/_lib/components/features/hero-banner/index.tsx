@@ -20,7 +20,7 @@ export default function HeroBanner(): React.ReactElement {
       >
         <div
           id="content"
-          className="mb-0 grid size-full grid-cols-1 px-4 pt-28 text-white md:mb-20 md:grid-cols-2 md:gap-2 md:p-0"
+          className="mb-0 grid size-full grid-cols-1 px-4 pt-28 text-white md:mb-20 md:grid-cols-2 md:gap-2"
         >
           <div id="left-content" className="relative col-span-1 flex min-h-72 flex-col gap-8">
             <PopOver position="left" className="left-0 animate-fadeIn delay-300">
