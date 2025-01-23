@@ -5,7 +5,10 @@ import { sampleData, type sampleType } from "@/app/_lib/components/features/foot
 export default function Footer(): React.ReactElement {
   return (
     <footer className="flex size-full flex-col items-center bg-gray-50 py-16">
-      <div id="grid-container" className="grid w-full max-w-screen-xl grid-cols-6 gap-x-4 gap-y-12">
+      <div
+        id="grid-container"
+        className="container mx-auto grid grid-cols-2 gap-x-2 gap-y-8 p-4 md:w-full md:max-w-screen-xl md:grid-cols-6 md:gap-x-4 md:gap-y-12 md:p-0"
+      >
         <div id="company-info" className="col-span-2">
           <div id="company-logo" className="flex items-center gap-2">
             <div className="relative size-14">
@@ -28,26 +31,30 @@ export default function Footer(): React.ReactElement {
         {sampleData.map((data: sampleType) => (
           <FooterCard key={data.id} icon={data.icon} title={data.title} />
         ))}
-        <div id="busnises-name" className="flex flex-col gap-2 text-xs">
+
+        <div id="busnises-name" className="col-span-1 flex flex-col gap-2 text-xs">
           <p className="text-gray-800">상호명</p>
           <p className="text-gray-600">하이퍼하이어</p>
           <p className="font-bold text-gray-600">Hyperhire India Private Limited</p>
         </div>
-        <div id="ceo" className="flex flex-col gap-2 text-xs">
+
+        <div id="ceo" className="col-span-1 flex flex-col gap-2 text-xs">
           <p className="text-gray-800">
             대표 <span className="font-bold">CEO</span>
           </p>
           <p className="text-gray-600">김주현</p>
           <p className="font-bold text-gray-600">Juhyun Kim</p>
         </div>
-        <div id="contact" className="flex flex-col gap-2 text-xs">
+
+        <div id="contact" className="col-span-1 flex flex-col gap-2 text-xs">
           <p className="text-gray-800">
             사업자등록번호 <span className="font-bold">CIN</span>
           </p>
           <p className="font-bold text-gray-600">427-86-01187</p>
           <p className="font-bold text-gray-600">U74110DL2016PTC290812 </p>
         </div>
-        <div id="address" className="col-span-3 flex flex-col gap-2 text-xs">
+
+        <div id="address" className="col-span-2 flex flex-col gap-2 text-xs md:col-span-3">
           <p className="text-gray-800">
             주소 <span className="font-bold">ADDRESS</span>
           </p>
@@ -59,7 +66,7 @@ export default function Footer(): React.ReactElement {
             D-138, Street number 11, Jagjeet Nagar, North East Delhi, New Delhi, 110053 India
           </p>
         </div>
-        <p id="copyright" className="col-span-6 text-left text-xs text-gray-600">
+        <p id="copyright" className="col-span-2 text-left text-xs text-gray-600 md:col-span-6">
           ⓒ <span className="font-bold">2023 Hyperhire</span>
         </p>
       </div>
