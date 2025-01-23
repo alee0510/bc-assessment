@@ -1,6 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default function handler(_: NextApiRequest, res: NextApiResponse): void {
+  res.setHeader("Access-Control-Allow-Origin", "*"); // Adjust origin for security
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   res.status(200).json([
     {
       id: 1,
