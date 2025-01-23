@@ -1,4 +1,4 @@
-export type sampleType = {
+export type dataType = {
   id: number;
   image: string;
   flag: string;
@@ -7,10 +7,10 @@ export type sampleType = {
   skils: string[];
 };
 
-export const sampleData: sampleType[] = [
+export const samples: dataType[] = [
   {
     id: 1,
-    image: "/images/sample-1.jpg",
+    image: "/images/profile-sample.png",
     flag: "/images/flag-sample.png",
     name: "Abhishek Gupta",
     experience: "마케팅 · 2y+",
@@ -18,7 +18,7 @@ export const sampleData: sampleType[] = [
   },
   {
     id: 2,
-    image: "/images/sample-2.jpg",
+    image: "/images/profile-sample.png",
     flag: "/images/flag-sample.png",
     name: "Abhishek Gupta",
     experience: "마케팅 · 2y+",
@@ -26,7 +26,7 @@ export const sampleData: sampleType[] = [
   },
   {
     id: 3,
-    image: "/images/sample-3.jpg",
+    image: "/images/profile-sample.png",
     flag: "/images/flag-sample.png",
     name: "Abhishek Gupta",
     experience: "마케팅 · 2y+",

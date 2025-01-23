@@ -6,11 +6,11 @@ export default function HeroBanner(): React.ReactElement {
   return (
     <section
       id="hero-banner"
-      className="relative isolate flex h-full min-h-[929px] justify-center bg-slate-300"
+      className="relative isolate flex h-full min-h-[929px] items-center justify-center bg-slate-300"
     >
       <Backdrop />
       <div id="hero-content" className="mt-[61px] flex w-full max-w-screen-xl flex-col">
-        <div id="content" className="my-10 flex w-full items-center text-white">
+        <div id="content" className="mb-20 flex w-full items-center gap-4 text-white">
           <div id="left-content" className="flex flex-1 flex-col gap-8">
             <h1 className="text-5xl font-black">최고의 실력을 가진 외국인 인재를 찾고 계신가요?</h1>
             <h3 className="text-2xl font-black">
