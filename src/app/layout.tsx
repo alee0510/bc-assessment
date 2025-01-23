@@ -2,7 +2,6 @@ import "@/styles/globals.css";
 
 import { Poppins } from "next/font/google";
 import { type Metadata } from "next";
-import Header from "@/app/_lib/components/features/header";
 
 // @font
 const poppins = Poppins({
@@ -24,10 +23,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>): React.ReactElement {
   return (
     <html lang="en" className={`${poppins.variable} bg-gray-200`}>
-      <body>
-        <Header />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

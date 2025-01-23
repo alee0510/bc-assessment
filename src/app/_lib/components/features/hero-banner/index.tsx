@@ -1,3 +1,4 @@
+import Header from "@/app/_lib/components/features/header";
 import Backdrop from "@/app/_lib/components/features/hero-banner/backdrop";
 import Carousel from "@/app/_lib/components/features/hero-banner/carousel";
 import Slider from "@/app/_lib/components/features/hero-banner/slider";
@@ -9,6 +10,7 @@ export default function HeroBanner(): React.ReactElement {
       id="hero-banner"
       className="relative isolate flex h-full min-h-[929px] items-center justify-center bg-slate-300"
     >
+      <Header />
       <Backdrop />
       <div id="hero-content" className="mt-[61px] flex w-full max-w-screen-xl flex-col">
         <div id="content" className="mb-20 flex w-full items-center gap-4 text-white">
