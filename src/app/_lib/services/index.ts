@@ -7,7 +7,7 @@ export async function getCarouselData(): Promise<carouselDataType[]> {
     const data: carouselDataType[] = (await response.json()) as carouselDataType[];
     return data;
   } catch (error) {
-    console.error(error);
+    console.error("#ERROR: ", error);
     return [];
   }
 }
@@ -18,7 +18,7 @@ export async function getSlideData(): Promise<sildeDataType[]> {
     const data: sildeDataType[] = (await response.json()) as sildeDataType[];
     return data;
   } catch (error) {
-    console.error(error);
+    console.error("#ERROR: ", error);
     return [];
   }
 }
@@ -29,7 +29,7 @@ export async function getFooterData(): Promise<footerDataType[]> {
     const data: footerDataType[] = (await response.json()) as footerDataType[];
     return data;
   } catch (error) {
-    console.error(error);
+    console.error("#ERROR: ", error);
     return [];
   }
 }
