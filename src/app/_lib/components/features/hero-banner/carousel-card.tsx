@@ -1,12 +1,37 @@
 import Image from "next/image";
-import type { sampleType } from "@/app/_lib/components/features/hero-banner/mockup";
+import type { dataType } from "@/app/_lib/components/features/hero-banner/mockup";
 
-export default function CarouselCard({ item }: { item: sampleType }): React.ReactElement {
+export default function CarouselCard({
+  item,
+  style,
+}: {
+  item: dataType;
+  style: React.CSSProperties;
+}): React.ReactElement {
   return (
     <div
       key={item.id}
-      style={{ transform: item.id === 2 ? "translate3d(-50%, 0, -100px)" : "translate3d(0, 0, 0)" }}
-      className="absolute left-0 top-0 flex max-w-72 cursor-pointer flex-col items-center gap-4 rounded-lg bg-white px-8 py-5 text-black drop-shadow-[24_0px_15px_rgba(0,0,0,0.12)]"
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        transitionProperty: "transform, opacity, visibility",
+        transitionDuration: "500ms, 500ms, 500ms",
+        transitionTimingFunction: "ease, ease, ease",
+        transitionDelay: "0s, 0s, 0s",
+        display: "flex",
+        cursor: "pointer",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "2rem",
+        borderRadius: "0.5rem",
+        padding: "2rem 1.25rem",
+        width: "18rem",
+        height: "28rem",
+        color: "black",
+        boxShadow: "24px 0px 15px rgba(0,0,0,0.12)",
+        ...style,
+      }}
     >
       <div id="profile-image" className="relative">
         <div className="relative size-32 overflow-hidden rounded-full">
