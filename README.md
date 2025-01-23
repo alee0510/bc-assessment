@@ -40,3 +40,42 @@ Make sure you have the following installed:
    ```
 
 2. Install dependencies:
+
+   ```sh
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Set up Husky and Commitlint:
+
+   ```sh
+      npx husky install
+   ```
+
+### Running the Project
+
+To run the development server:
+
+```sh
+   npm run dev
+   # or
+   yarn dev
+```
+
+Open http://localhost:3000 with your browser to see the result.
+
+### Deployment
+
+Vercel
+To deploy your project to Vercel:
+
+1. Push your code to a GitHub, GitLab, or Bitbucket repository.
+2. Go to Vercel and import your project.
+3. Follow the prompts to link your repository and configure your project.
+4. Set up any necessary environment variables in the Vercel dashboard.
+5. Deploy your project.
+
+#### Environment Variables
+
+Make sure to set up any environment variables used in your project in the Vercel dashboard under your project settings.
