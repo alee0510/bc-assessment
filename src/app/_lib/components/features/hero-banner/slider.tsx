@@ -1,12 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
-import { getFooterData } from "@/app/_lib/services";
-import type { footerDataType } from "@/app/_lib/types";
+import { getSlideData } from "@/app/_lib/services";
+import type { sildeDataType } from "@/app/_lib/types";
 import HeroCard from "@/app/_lib/components/features/hero-banner/card";
 
 export default function Slider(): React.ReactElement {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [data, setData] = useState<footerDataType[]>([]);
+  const [data, setData] = useState<sildeDataType[]>([]);
 
   // @sideEffect
   useEffect(() => {
@@ -17,12 +17,12 @@ export default function Slider(): React.ReactElement {
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [data]);
 
   // @fetcthData
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
-      const footerData = await getFooterData();
+      const footerData = await getSlideData();
       setData(footerData);
     };
 
