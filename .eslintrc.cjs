@@ -159,7 +159,17 @@ const config = {
         "react/react-in-jsx-scope": "off",
 
         // Tailwind
-        "tailwindcss/classnames-order": ["error"],
+        "tailwindcss/classnames-order": [
+          "error",
+          {
+            "custom-class": [
+              "animate-fadeIn",
+              "animate-fadeInUp",
+              "animate-slide",
+              "animate-slideOnByOne",
+            ],
+          },
+        ],
         "tailwindcss/enforces-negative-arbitrary-values": "error",
         "tailwindcss/enforces-shorthand": "error",
         "tailwindcss/no-contradicting-classname": "error",

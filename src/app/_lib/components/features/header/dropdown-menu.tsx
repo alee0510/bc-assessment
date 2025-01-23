@@ -25,10 +25,14 @@ export default function HeaderDropdownMenu(): React.ReactElement {
           isMenuOpen ? "block" : "hidden"
         )}
       >
-        <List className="font-black">채용</List>
-        <List>해외 개발자 원격 채용</List>
-        <List className="border-b">외국인 원격 채용 (비개발 직군)</List>
-        <List>한국어 가능 외국인 채용</List>
+        <List onClick={handleMenuOpen} className="font-black">
+          채용
+        </List>
+        <List onClick={handleMenuOpen}>해외 개발자 원격 채용</List>
+        <List onClick={handleMenuOpen} className="border-b">
+          외국인 원격 채용 (비개발 직군)
+        </List>
+        <List onClick={handleMenuOpen}>한국어 가능 외국인 채용</List>
       </ul>
     </div>
   );

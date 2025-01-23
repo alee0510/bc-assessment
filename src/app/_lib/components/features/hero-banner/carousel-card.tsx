@@ -1,11 +1,15 @@
 import Image from "next/image";
+import clsx from "clsx";
 import type { dataType } from "@/app/_lib/components/features/hero-banner/mockup";
+import PopOver from "@/app/_lib/components/ui/pop-over";
 
 export default function CarouselCard({
   item,
+  active,
   style,
 }: {
   item: dataType;
+  active: boolean;
   style: React.CSSProperties;
 }): React.ReactElement {
   return (
@@ -33,6 +37,25 @@ export default function CarouselCard({
         ...style,
       }}
     >
+      <PopOver
+        position="center"
+        className={clsx("animate-fadeIn", active ? "visible" : "invisible")}
+      >
+        <div className="flex items-center">
+          <div className="rounded-full bg-teal-200/60 p-2">
+            <div className="relative size-6">
+              <Image
+                src={"/icons/icon-dolar.svg"}
+                alt="icon-dolar"
+                sizes="100%"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
+          <p className="ml-2 text-lg font-black text-teal-500">월 100만원</p>
+        </div>
+      </PopOver>
       <div id="profile-image" className="relative">
         <div className="relative size-32 overflow-hidden rounded-full">
           <Image src={item.image} alt={item.name} sizes="100%" fill className="object-contain" />
