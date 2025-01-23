@@ -57,7 +57,7 @@ export default function MainCarousel(): React.ReactElement {
         }}
       >
         {samples.map((item, index) => (
-          <Card key={item.id} item={item} style={getStyle(index)} />
+          <Card key={item.id} item={item} active={index === current} style={getStyle(index)} />
         ))}
       </div>
       <div
