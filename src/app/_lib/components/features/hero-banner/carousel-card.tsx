@@ -16,26 +16,14 @@ export default function CarouselCard({
     <div
       key={item.id}
       style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
         transitionProperty: "transform, opacity, visibility",
         transitionDuration: "500ms, 500ms, 500ms",
         transitionTimingFunction: "ease, ease, ease",
         transitionDelay: "0s, 0s, 0s",
-        display: "flex",
-        cursor: "pointer",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "2rem",
-        borderRadius: "0.5rem",
-        padding: "2rem 1.25rem",
-        width: "18rem",
-        height: "28rem",
-        color: "black",
         boxShadow: "24px 0px 15px rgba(0,0,0,0.12)",
         ...style,
       }}
+      className="absolute left-0 top-0 flex h-80 w-60 cursor-pointer flex-col items-center gap-4 rounded-lg bg-white px-8 py-5 text-black md:h-[28rem] md:w-72 md:gap-8"
     >
       <PopOver
         position="center"
@@ -57,24 +45,27 @@ export default function CarouselCard({
         </div>
       </PopOver>
       <div id="profile-image" className="relative">
-        <div className="relative size-32 overflow-hidden rounded-full">
+        <div className="relative size-16 overflow-hidden rounded-full md:size-32">
           <Image src={item.image} alt={item.name} sizes="100%" fill className="object-contain" />
         </div>
-        <div className="absolute bottom-2 right-2 size-6">
+        <div className="absolute bottom-0 right-0 size-5 md:bottom-2 md:right-2 md:size-6">
           <Image src={item.flag} alt="flag" sizes="100%" fill className="object-contain" />
         </div>
       </div>
       <div className="text-center font-black">
-        <p id="name" className="text-2xl">
+        <p id="name" className="text-lg md:text-2xl">
           {item.name}
         </p>
-        <p id="experiences" className="text-base text-blue-700">
+        <p id="experiences" className="text-sm text-blue-700 md:text-base">
           {item.experience}
         </p>
       </div>
       <div className="flex flex-wrap justify-center gap-1">
         {item.skils.map((skill) => (
-          <p className="rounded-md border px-2 py-1 text-base" key={`${item.id}-${skill}`}>
+          <p
+            className="rounded-md border px-2 py-1 text-sm md:text-base"
+            key={`${item.id}-${skill}`}
+          >
             {skill}
           </p>
         ))}

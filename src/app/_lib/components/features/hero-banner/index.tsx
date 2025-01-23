@@ -1,33 +1,43 @@
+import { Suspense } from "react";
 import Header from "@/app/_lib/components/features/header";
 import Backdrop from "@/app/_lib/components/features/hero-banner/backdrop";
 import Carousel from "@/app/_lib/components/features/hero-banner/carousel";
 import Slider from "@/app/_lib/components/features/hero-banner/slider";
+import MobileSlider from "@/app/_lib/components/features/hero-banner/mobile-slider";
 import PopOver from "@/app/_lib/components/ui/pop-over";
 
 export default function HeroBanner(): React.ReactElement {
   return (
     <section
       id="hero-banner"
-      className="relative isolate flex h-full min-h-[929px] items-center justify-center bg-slate-300"
+      className="relative isolate flex h-full min-h-[929px] flex-col items-center overflow-hidden bg-slate-300"
     >
       <Header />
       <Backdrop />
-      <div id="hero-content" className="mt-[61px] flex w-full max-w-screen-xl flex-col">
-        <div id="content" className="mb-20 flex w-full items-center gap-4 text-white">
-          <div id="left-content" className="relative flex flex-1 flex-col gap-8">
+      <div
+        id="hero-content"
+        className="flex size-full min-h-[929px] max-w-screen-xl flex-col justify-center overflow-hidden"
+      >
+        <div
+          id="content"
+          className="mb-0 grid size-full grid-cols-1 px-4 pt-28 text-white md:mb-20 md:grid-cols-2 md:gap-2 md:p-0"
+        >
+          <div id="left-content" className="relative col-span-1 flex min-h-72 flex-col gap-8">
             <PopOver position="left" className="left-0 animate-fadeIn delay-300">
               <p className="text-lg text-cyan-400">풀타임, 파트타임</p>
             </PopOver>
-            <h1 className="relative animate-fadeInUp text-5xl font-black">
+            <h1 className="relative animate-fadeInUp text-4xl font-black md:text-5xl">
               최고의 실력을 가진 외국인 인재를 찾고 계신가요?
             </h1>
-            <h3 className="animate-fadeInUp text-2xl font-black">
+            <h3 className="animate-fadeInUp text-xl font-black md:text-2xl">
               법률 및 인사관리 부담없이 1주일 이내에 원격으로 채용해보세요.
             </h3>
-            <h5 className="animate-fadeInUp text-lg font-black">개발자가 필요하신가요?</h5>
+            <h5 className="hidden animate-fadeInUp text-lg font-black md:block">
+              개발자가 필요하신가요?
+            </h5>
             <div
               id="card-content"
-              className="flex animate-fadeIn items-center justify-between gap-12"
+              className="hidden animate-fadeIn items-center justify-between gap-12 md:flex"
             >
               <div className="border-t-2">
                 <h5 className="my-2 font-black">평균 월 120만원</h5>
@@ -43,11 +53,19 @@ export default function HeroBanner(): React.ReactElement {
               </div>
             </div>
           </div>
-          <div id="right-content" className="h-full max-w-[50%] flex-1">
-            <Carousel />
+
+          <div id="right-content" className="col-span-1 min-h-72">
+            <Suspense fallback={<div>Loading...</div>}>
+              <Carousel />
+            </Suspense>
           </div>
+          <MobileSlider />
+          <p className="block text-lg font-black text-yellow-300 md:hidden">
+            개발자가 필요하신가요?
+          </p>
         </div>
-        <div className="h-20 w-full">
+
+        <div className="hidden h-20 w-full md:block">
           <Slider />
         </div>
       </div>
