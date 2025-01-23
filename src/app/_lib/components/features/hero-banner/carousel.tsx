@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import Card from "@/app/_lib/components/features/hero-banner/carousel-card";
 import { samples } from "@/app/_lib/components/features/hero-banner/mockup";
@@ -7,9 +7,29 @@ import { samples } from "@/app/_lib/components/features/hero-banner/mockup";
 // @main component
 export default function MainCarousel(): React.ReactElement {
   const [current, setCurrent] = useState(0);
+  const [fraction, setFraction] = useState(2);
+
+  // @side-effect
+  useEffect(() => {
+    const updateFraction = (): void => {
+      if (window.innerWidth < 768) {
+        setFraction(5);
+      } else {
+        setFraction(2);
+      }
+    };
+
+    updateFraction(); // Set initial value
+    window.addEventListener("resize", updateFraction);
+
+    return () => {
+      window.removeEventListener("resize", updateFraction);
+    };
+  }, []);
+
+  // @event handler
   const getStyle = (index: number): React.CSSProperties => {
     const containerWidth = 384; // 24rem in pixels
-    const fraction = window.innerWidth < 768 ? 5 : 2;
     if (index === current) {
       return {
         transform: "translateX(0px) translateZ(0px) rotateY(0deg)",

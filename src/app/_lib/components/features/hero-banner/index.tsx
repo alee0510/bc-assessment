@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Header from "@/app/_lib/components/features/header";
 import Backdrop from "@/app/_lib/components/features/hero-banner/backdrop";
 import Carousel from "@/app/_lib/components/features/hero-banner/carousel";
@@ -54,7 +55,9 @@ export default function HeroBanner(): React.ReactElement {
           </div>
 
           <div id="right-content" className="col-span-1 min-h-72">
-            <Carousel />
+            <Suspense fallback={<div>Loading...</div>}>
+              <Carousel />
+            </Suspense>
           </div>
           <MobileSlider />
           <p className="block text-lg font-black text-yellow-300 md:hidden">
