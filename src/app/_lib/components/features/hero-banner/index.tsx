@@ -28,8 +28,8 @@ export default function HeroBanner(): React.ReactElement {
           >
             <PopOver
               position="left"
-              className="-top-12 left-4 animate-fadeIn bg-sky-400 delay-300 md:-top-20 md:left-0 md:bg-white"
-              anchorClassName="md:border-t-white border-t-sky-400"
+              className="-top-12 left-4 animate-fadeIn bg-[#8BC4FF] delay-300 md:-top-20 md:left-0 md:bg-white"
+              anchorClassName="md:border-t-white border-t-[#8BC4FF]"
             >
               <p className="text-lg font-black text-white md:text-cyan-400">풀타임, 파트타임</p>
             </PopOver>
