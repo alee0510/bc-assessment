@@ -49,9 +49,7 @@ export default function PopOver({
     >
       {children}
       <span
-        style={{
-          ...getStyles(position),
-        }}
+        style={getStyles(position)}
         className={twMerge(
           "absolute size-0 border-l-[10px] border-r-[10px] border-t-[10px] border-l-transparent border-r-transparent border-t-white",
           anchorClassName
