@@ -1,6 +1,10 @@
-# My Next.js Project
+# Descriptions
 
 This project is a landing page built with [Next.js](https://nextjs.org) as the main framework. It includes custom carousel and slider components, and uses Husky and Commitlint for managing Git hooks and enforcing commit message conventions.
+
+## Live Priview
+
+- [click here to see the live version](https://bc-assessment-363i.vercel.app/)
 
 ## Project Setup
 
