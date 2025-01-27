@@ -20,10 +20,13 @@ export default function HeroBanner(): React.ReactElement {
       >
         <div
           id="content"
-          className="mb-0 grid size-full grid-cols-1 px-4 pt-28 text-white md:mb-20 md:grid-cols-2 md:gap-2"
+          className="mb-0 grid size-full grid-cols-1 pt-28 text-white md:mb-20 md:grid-cols-2 md:gap-2"
         >
-          <div id="left-content" className="relative col-span-1 flex min-h-72 flex-col gap-8">
-            <PopOver position="left" className="left-0 animate-fadeIn delay-300">
+          <div
+            id="left-content"
+            className="relative col-span-1 flex min-h-72 flex-col gap-8 p-4 md:p-0"
+          >
+            <PopOver position="left" className="left-4 animate-fadeIn delay-300 md:left-0">
               <p className="text-lg text-cyan-400">풀타임, 파트타임</p>
             </PopOver>
             <h1 className="relative animate-fadeInUp text-4xl font-black md:text-5xl">
@@ -60,7 +63,7 @@ export default function HeroBanner(): React.ReactElement {
             </Suspense>
           </div>
           <MobileSlider />
-          <p className="block text-lg font-black text-yellow-300 md:hidden">
+          <p className="block px-4 text-lg font-black text-yellow-300 md:hidden">
             개발자가 필요하신가요?
           </p>
         </div>
