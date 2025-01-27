@@ -1,5 +1,6 @@
+"use client";
+import { useEffect, useRef, type ReactElement, type CSSProperties } from "react";
 import Image from "next/image";
-import clsx from "clsx";
 import type { dataType } from "@/app/_lib/components/features/hero-banner/mockup";
 import PopOver from "@/app/_lib/components/ui/pop-over";
 
@@ -10,8 +11,25 @@ export default function CarouselCard({
 }: {
   item: dataType;
   active: boolean;
-  style: React.CSSProperties;
-}): React.ReactElement {
+  style: CSSProperties;
+}): ReactElement {
+  const popOverRef = useRef<HTMLDivElement>(null);
+  const infoContainerRef = useRef<HTMLDivElement>(null);
+  //@fadeIn
+  useEffect(() => {
+    if (active && popOverRef.current !== null && infoContainerRef.current !== null) {
+      popOverRef.current.style.opacity = "1";
+      popOverRef.current.style.transform = "scale(1)";
+      infoContainerRef.current.style.opacity = "1";
+    }
+    if (!active && popOverRef.current !== null && infoContainerRef.current !== null) {
+      popOverRef.current.style.opacity = "0";
+      popOverRef.current.style.transform = "scale(0.8)";
+      infoContainerRef.current.style.opacity = "0.7";
+    }
+  }, [active]);
+
+  console.log("@LOG: active", active);
   return (
     <div
       key={item.id}
@@ -26,8 +44,16 @@ export default function CarouselCard({
       className="absolute left-0 top-0 flex h-80 w-60 cursor-pointer flex-col items-center gap-4 rounded-lg bg-white px-8 py-5 text-black md:h-[28rem] md:w-72 md:gap-8"
     >
       <PopOver
+        ref={popOverRef}
         position="center"
-        className={clsx("animate-fadeIn", active ? "visible" : "invisible")}
+        style={{
+          transitionProperty: "opacity",
+          transitionDuration: "500ms",
+          transitionTimingFunction: "ease",
+          transitionDelay: "0s",
+          opacity: 0,
+          scale: 0.8,
+        }}
       >
         <div className="flex items-center">
           <div className="rounded-full bg-teal-200/60 p-2">
@@ -60,7 +86,17 @@ export default function CarouselCard({
           {item.experience}
         </p>
       </div>
-      <div className="flex flex-wrap justify-center gap-1">
+      <div
+        ref={infoContainerRef}
+        style={{
+          transitionProperty: "opacity",
+          transitionDuration: "500ms",
+          transitionTimingFunction: "ease",
+          transitionDelay: "0s",
+          opacity: 0,
+        }}
+        className="flex animate-fadeIn flex-wrap justify-center gap-1"
+      >
         {item.skils.map((skill) => (
           <p
             className="rounded-md border px-2 py-1 text-sm md:text-base"
