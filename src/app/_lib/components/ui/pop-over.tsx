@@ -6,6 +6,7 @@ export type PositionType = "left" | "right" | "center";
 export type PopOverProps = HTMLAttributes<HTMLDivElement> & {
   position: PositionType;
   ref?: React.Ref<HTMLDivElement>;
+  anchorClassName?: string;
 };
 
 // @component
@@ -15,6 +16,7 @@ export default function PopOver({
   children,
   style,
   className,
+  anchorClassName,
 }: PopOverProps): ReactElement {
   const getStyles = (type: PositionType): React.CSSProperties => {
     if (type === "left") {
@@ -48,14 +50,12 @@ export default function PopOver({
       {children}
       <span
         style={{
-          width: 0,
-          height: 0,
-          borderLeft: "10px solid transparent",
-          borderRight: "10px solid transparent",
-          borderTop: "10px solid white",
-          position: "absolute",
           ...getStyles(position),
         }}
+        className={twMerge(
+          "absolute size-0 border-l-[10px] border-r-[10px] border-t-[10px] border-l-transparent border-r-transparent border-t-white",
+          anchorClassName
+        )}
       />
     </div>
   );

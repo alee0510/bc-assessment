@@ -20,14 +20,18 @@ export default function HeroBanner(): React.ReactElement {
       >
         <div
           id="content"
-          className="mb-0 grid size-full grid-cols-1 pt-28 text-white md:mb-20 md:grid-cols-2 md:gap-2"
+          className="mb-0 mt-24 grid size-full grid-cols-1 text-white md:mb-20 md:mt-28 md:grid-cols-2 md:gap-2"
         >
           <div
             id="left-content"
-            className="relative col-span-1 flex min-h-72 flex-col gap-8 p-4 md:p-0"
+            className="relative col-span-1 flex min-h-72 flex-col gap-4 p-4 md:gap-8 md:p-0"
           >
-            <PopOver position="left" className="left-4 animate-fadeIn delay-300 md:left-0">
-              <p className="text-lg text-cyan-400">풀타임, 파트타임</p>
+            <PopOver
+              position="left"
+              className="-top-12 left-4 animate-fadeIn bg-sky-400 delay-300 md:-top-20 md:left-0 md:bg-white"
+              anchorClassName="md:border-t-white border-t-sky-400"
+            >
+              <p className="text-lg font-black text-white md:text-cyan-400">풀타임, 파트타임</p>
             </PopOver>
             <h1 className="relative animate-fadeInUp text-4xl font-black md:text-5xl">
               최고의 실력을 가진 외국인 인재를 찾고 계신가요?
