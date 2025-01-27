@@ -16,6 +16,9 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "prepare": "husky"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix --ext .ts,.tsx,.js,.jsx"
