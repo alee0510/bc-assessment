@@ -162,12 +162,7 @@ const config = {
         "tailwindcss/classnames-order": [
           "error",
           {
-            "custom-class": [
-              "animate-fadeIn",
-              "animate-fadeInUp",
-              "animate-slide",
-              "animate-slideOnByOne",
-            ],
+            "custom-class": ["animate-fadeIn", "animate-fadeInUp", "animate-slide"],
           },
         ],
         "tailwindcss/enforces-negative-arbitrary-values": "error",

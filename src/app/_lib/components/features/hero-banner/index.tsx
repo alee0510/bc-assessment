@@ -10,13 +10,13 @@ export default function HeroBanner(): React.ReactElement {
   return (
     <section
       id="hero-banner"
-      className="relative isolate flex h-full min-h-[929px] flex-col items-center overflow-hidden bg-slate-300"
+      className="relative isolate flex h-full min-h-[929px] flex-col items-center bg-slate-300"
     >
       <Header />
       <Backdrop />
       <div
         id="hero-content"
-        className="flex size-full min-h-[929px] max-w-screen-xl flex-col justify-center overflow-hidden"
+        className="flex size-full min-h-[929px] max-w-screen-xl flex-col justify-center"
       >
         <div
           id="content"
@@ -65,7 +65,7 @@ export default function HeroBanner(): React.ReactElement {
           </p>
         </div>
 
-        <div className="hidden h-20 w-full md:block">
+        <div className="hidden min-h-20 w-full md:block">
           <Slider />
         </div>
       </div>

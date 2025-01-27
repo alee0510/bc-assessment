@@ -17,7 +17,7 @@ export default function MainCarousel(): React.ReactElement {
       if (window.innerWidth < 768) {
         setFraction(5);
       } else {
-        setFraction(2);
+        setFraction(2.5);
       }
     };
 
@@ -93,7 +93,7 @@ export default function MainCarousel(): React.ReactElement {
       </div>
       <div
         id="navigator"
-        className="absolute left-0 top-0 z-20 flex size-full items-center justify-between"
+        className="absolute left-0 top-0 z-20 flex size-full items-center justify-between md:px-2"
       >
         <button type="button" onClick={onPrev}>
           <ChevronLeftIcon className="size-8" />

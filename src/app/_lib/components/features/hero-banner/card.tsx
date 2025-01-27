@@ -1,6 +1,8 @@
+import type { ReactElement } from "react";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 
+// @component
 export default function HeroCard({
   image,
   title,
@@ -9,7 +11,7 @@ export default function HeroCard({
   image: string;
   title: string;
   className?: string;
-}): React.ReactElement {
+}): ReactElement {
   return (
     <div
       className={twMerge("flex min-w-[22rem] items-center rounded-lg bg-white/20 p-3", className)}

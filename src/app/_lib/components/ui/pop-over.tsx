@@ -1,16 +1,21 @@
+import type { ReactElement, HTMLAttributes } from "react";
 import { twMerge } from "tailwind-merge";
 
+// @types
 export type PositionType = "left" | "right" | "center";
-
-export default function PopOver({
-  children,
-  position,
-  className,
-}: {
-  children: React.ReactElement;
+export type PopOverProps = HTMLAttributes<HTMLDivElement> & {
   position: PositionType;
-  className?: string;
-}): React.ReactElement {
+  ref?: React.Ref<HTMLDivElement>;
+};
+
+// @component
+export default function PopOver({
+  ref,
+  position,
+  children,
+  style,
+  className,
+}: PopOverProps): ReactElement {
   const getStyles = (type: PositionType): React.CSSProperties => {
     if (type === "left") {
       return {
@@ -35,7 +40,11 @@ export default function PopOver({
   };
 
   return (
-    <span className={twMerge("absolute -top-20 rounded-lg bg-white px-5 py-2", className)}>
+    <div
+      ref={ref}
+      style={style}
+      className={twMerge("absolute -top-20 rounded-lg bg-white px-5 py-2", className)}
+    >
       {children}
       <span
         style={{
@@ -48,6 +57,6 @@ export default function PopOver({
           ...getStyles(position),
         }}
       />
-    </span>
+    </div>
   );
 }
